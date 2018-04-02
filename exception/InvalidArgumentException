@@ -1,2 +1,2 @@
 <?php
-name space dclchj\wechat;
+name space dclchj\wechat\exception;
