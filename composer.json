@@ -1,5 +1,4 @@
 {
-	"type" : "library",
 	"name" : "dclchj/wechat",
 	"homepage" : "https://github.com/dclchj/wechat",
 	"description" : "WeChat platform and WeChat payment development tools",
