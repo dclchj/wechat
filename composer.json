@@ -1,0 +1,28 @@
+{
+	"type" : "library",
+	"name" : "dclchj/wechat",
+	"homepage" : "https://github.com/dclchj/wechat",
+	"description" : "WeChat platform and WeChat payment development tools",
+	"license" : "MIT",
+	"authors" : [{
+			"name" : "Dclchj",
+			"email" : "dclchj@163.com",
+			"homepage" : "http://www.chengjian.online/"
+		}
+	],
+	"keywords" : [
+		"WeChat",
+		"WeChatPay",
+		"WeChatDeveloper"
+	],
+	"require" : {
+		"php" : ">=5.4",
+		"ext-curl" : "*",
+		"ext-openssl" : "*"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"dclchj\\wechat" : "wechat/"
+		}
+	}
+}
