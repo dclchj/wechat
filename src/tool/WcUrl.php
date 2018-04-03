@@ -52,6 +52,10 @@ class WcUrl
     const OAUTH_USERINFO_URL = "https://api.weixin.qq.com/sns/userinfo?access_token=%s&openid=%s";
     
     
+    //=========【JSAPI】==========================================
+    // 获取 jsapi_ticket [参数：access_token]
+    const JSAPI_TICKET = "https://api.weixin.qq.com/cgi-bin/ticket/getticket?type=jsapi&access_token=%s";
+    
     
     
     
@@ -149,6 +153,13 @@ class WcUrl
     public static function make_oauthurl_userinfo($access_token, $openid)
     {
         $url = sprintf(self::OAUTH_USERINFO_URL, $access_token, $openid);
+        return $url;
+    }
+    
+    //=========【JSAPI】==========================================
+    public static function make_jsapi_ticket($access_token)
+    {
+        $url = sprintf(self::JSAPI_TICKET, $access_token);
         return $url;
     }
 }
