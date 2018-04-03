@@ -25,23 +25,24 @@ class WcBase
      */
     public function __construct()
     {
-        $res = file_get_contents('../../cache/access_token.json');
+        $token_file_path = __DIR__ . '/../../cache/access_token.json';
+        
+        $res = file_get_contents($token_file_path);
         $result = json_decode($res, true);
         $this->expires_time = $result["expires_time"];
         $this->access_token = $result["access_token"];
         
         // 如果 access_tocke 已过期则重新获取
         if (time() > ($this->expires_time + 3600)){
-            $url = WcUrl::make_token_url();
-            $wcCurl = new WcCurl();
-            $res = $wcCurl->get_http($url);
+            $url = WcUrl::make_accesstoken_url();
+            $res = WcCurl::get_http($url);
             $result = json_decode($res, true);
             if (isset($result['errcode'])) {
                 throw new Exception("获取 access_token 出错，错误码:" . $result['errcode'] . ":" . $result['errmsg']);
             }
             $this->access_token = $result["access_token"];
             $this->expires_time = time();
-            file_put_contents('access_token.json', '{"access_token": "'.$this->access_token.'", "expires_time": '.$this->expires_time.'}');
+            file_put_contents($token_file_path, '{"access_token": "'.$this->access_token.'", "expires_time": '.$this->expires_time.'}');
         }
     }
 }

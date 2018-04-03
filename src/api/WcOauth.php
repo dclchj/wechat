@@ -30,8 +30,7 @@ class WcOauth extends WcBase
         } else {
             $code = $_GET['code'];
             $url = WcUrl::make_oauthurl_access_token($code);
-            $wcCurl = new WcCurl();
-            $res = $wcCurl->get_http($url);
+            $res = WcCurl::get_http($url);
             $result = json_decode($res, true);
             if (isset($result['errcode'])) {
                 throw new Exception('获取用户信息出错，出错码：' . $result['errcode'] . ": " . $result['errmsg']);
@@ -46,7 +45,7 @@ class WcOauth extends WcBase
                     $openid = $result['openid'];
                     $url = WcUrl::make_oauthurl_userinfo($access_token, $openid);
                     $wcCurl = new WcCurl();
-                    $res = $wcCurl->get_http($url);
+                    $res = WcCurl::get_http($url);
                     $result = json_decode($res, true);
                     if (isset($result['errcode'])) {
                         throw new Exception('获取用户信息出错，出错码：' . $result['errcode'] . ": " . $result['errmsg']);

@@ -20,7 +20,7 @@ class WcCurl
      * @param int $timeout 超时时间，默认 30 秒。
      * @return string
      */
-    public function get_http($url, $timeout = 30)
+    public static function get_http($url, $timeout = 30)
     {
         // 初始化
         $ch = curl_init();
@@ -56,7 +56,7 @@ class WcCurl
      * @param boolean $useCert 是否使用证书
      * @param int $timeout 超时时间，默认 30 秒
      */
-    public function post_https($url, $data, $useCert = false, $timeout = 30)
+    public static function post_https($url, $data, $useCert = false, $timeout = 30)
     {
         // 初始化
         $ch = curl_init();
