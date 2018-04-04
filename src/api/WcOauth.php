@@ -9,9 +9,9 @@
  */
 namespace dclchj\wechat\api;
 
+use Exception;
 use dclchj\wechat\tool\WcUrl;
 use dclchj\wechat\tool\WcCurl;
-use think\Exception;
 
 class WcOauth extends WcBase
 {

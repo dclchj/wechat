@@ -57,6 +57,9 @@ class WcUrl
     const JSAPI_TICKET = "https://api.weixin.qq.com/cgi-bin/ticket/getticket?type=jsapi&access_token=%s";
     
     
+    //=========【商品订单】==========================================
+    // 统一下单
+    const UNIFIED_ORDER = "https://api.mch.weixin.qq.com/pay/unifiedorder";
     
     
     //=========【基础】==========================================
@@ -161,5 +164,12 @@ class WcUrl
     {
         $url = sprintf(self::JSAPI_TICKET, $access_token);
         return $url;
+    }
+    
+    //=========【商品订单】==========================================
+    // 统一下单
+    public static function make_unified_order()
+    {
+        return self::UNIFIED_ORDER;
     }
 }

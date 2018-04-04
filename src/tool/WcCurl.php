@@ -9,8 +9,8 @@
  */
 namespace dclchj\wechat\tool;
 
+use Exception;
 use dclchj\wechat\WcConfig;
-use think\Exception;
 
 class WcCurl
 {
@@ -62,8 +62,9 @@ class WcCurl
         $ch = curl_init();
         curl_setopt($ch,CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
-        curl_setopt($ch,CURLOPT_SSL_VERIFYPEER, TRUE);
-        curl_setopt($ch,CURLOPT_SSL_VERIFYHOST, 2);//严格校验
+        curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
         curl_setopt($ch, CURLOPT_HEADER, FALSE);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         // 如果有配置代理这里就设置代理

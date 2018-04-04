@@ -9,7 +9,7 @@
  */
 namespace dclchj\wechat\api;
 
-use think\Exception;
+use Exception;
 use dclchj\wechat\tool\WcUrl;
 use dclchj\wechat\tool\WcCurl;
 
